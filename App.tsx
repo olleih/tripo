@@ -4,13 +4,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import Login from './src/Screens/Onboarding/Login';
 import { RootStackParamList } from './src/types';
+
+import Login from './src/Screens/Onboarding/Login';
+import Home from './src/Screens/Main/Home/Home';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const OnboardingStack = () => {
-  return(
+  return (
   <Stack.Navigator initialRouteName="Login">
     <Stack.Screen 
       name="Login" 
@@ -21,8 +23,14 @@ const OnboardingStack = () => {
 }
 
 const HomeStack = () => {
-  return(
-    <></>
+  return (
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen 
+        name="Home" 
+        component={Home} 
+        options={{ headerShown: false }} 
+        />
+  </Stack.Navigator>
   );
 }
 
